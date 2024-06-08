@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <meta name="description" content="A music player with my fav songs !">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <style>
+        /* Images created by: https://unsplash.com/@pawel_czerwinski */
+
+        @import url("https://fonts.googleapis.com/css?family=Spartan:400,700&display=swap");
+
+        html {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #101214;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Spartan, sans-serif;
+            font-size: 12px;
+        }
+
+        .player-container {
+            height: 500px;
+            width: 400px;
+            background: #e7e7e7;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .img-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            top: -50px;
+            left: 50px;
+        }
+
+        .img-container img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 25px;
+            text-align: center;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            text-align: center;
+            font-weight: 400;
+            margin: 5px 0 0;
+        }
+
+        /* Progress */
+        .progress-container {
+            background: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 40px 20px;
+            height: 4px;
+            width: 90%;
+        }
+
+        .progress {
+            background: #242323;
+            border-radius: 5px;
+            height: 100%;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .duration-wrapper {
+            position: relative;
+            top: -25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Controls */
+        .player-controls {
+            position: relative;
+            top: -15px;
+            left: 120px;
+            width: 200px;
+        }
+
+        .fas {
+            font-size: 30px;
+            color: rgb(129, 129, 129);
+            margin-right: 30px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .fas:hover {
+            filter: brightness(80%);
+        }
+
+        .main-button {
+            font-size: 40px;
+            position: relative;
+            top: 3px;
+        }
+
+        /* Media Query: iPhone (Vertical) */
+        @media screen and (max-width: 376px) {
+            .player-container {
+                width: 95vw;
+            }
+
+            .img-container {
+                left: 29px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 15px;
+            }
+
+            .player-controls {
+                top: -10px;
+                left: 100px;
+            }
+        }
+    </style>
+    <div class="player-container">
+        <!-- Song -->
+        <div class="img-container">
+            <img src="img/august.jpg" alt="Album Art">
+        </div>
+        <h2 id="title">HARD (Tape Version)</h2>
+        <h3 id="artist">GLAVO</h3>
+        <audio src="music/HARD (Tape Version).mp3"></audio>
+        <!-- Progress -->
+        <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="duration-wrapper">
+                <span id="current-time">0:00</span>
+                <span id="duration">2:06</span>
+            </div>
+        </div>
+        <!-- Controls -->
+        <div class="player-controls">
+            <i class="fas fa-backward" id="prev" title="Previous"></i>
+            <i class="fas fa-play main-button" id="play" title="Play"></i>
+            <i class="fas fa-forward" id="next" title="Next"></i>
+        </div>
+    </div>
+    <!-- Script -->
+    <script>
+        const image = document.querySelector('img');
+        const title = document.getElementById('title');
+        const artist = document.getElementById('artist');
+        const music = document.querySelector('audio');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const progress = document.getElementById('progress');
+        const progressContainer = document.getElementById('progress-container');
+        const prevBtn = document.getElementById('prev');
+        const playBtn = document.getElementById('play');
+        const nextBtn = document.getElementById('next');
+
+        // Music
+        const songs = [
+            {
+                name: "HARD (Tape Version)",
+                displayName: "HARD (Tape Version)",
+                artist: "GLAVO",
+            },
+            {
+                name: "HOW I FEEL",
+                displayName: "HOW I FEEL",
+                artist: "GLAVO",
+            },
+            {
+                name: "NO GOOD",
+                displayName: "NO GOOD",
+                artist: "GLAVO",
+            },
+            {
+                name: "Runaway",
+                displayName: "Runaway",
+                artist: "GLAVO",
+            },
+            {
+                name: "Unknown",
+                displayName: "Unknown",
+                artist: "GLAVO",
+            },
+            {
+                name: "Who I was",
+                displayName: "Who I was",
+                artist: "GLAVO",
+            },
+        ];
+
+        // Check if Playing
+        let isPlaying = false;
+
+        // Play
+        function playSong() {
+            isPlaying = true;
+            playBtn.classList.replace('fa-play', 'fa-pause');
+            playBtn.setAttribute('title', 'Pause');
+            music.play();
+        }
+
+        // Pause
+        function pauseSong() {
+            isPlaying = false;
+            playBtn.classList.replace('fa-pause', 'fa-play');
+            playBtn.setAttribute('title', 'Play');
+            music.pause();
+        }
+
+        // Play or Pause Event Listener
+        playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
+
+        // Update DOM
+        function loadSong(song) {
+            title.textContent = song.displayName;
+            artist.textContent = song.artist;
+            music.src = `music/${song.name}.mp3`;
+            // image.src = `img/${song.name}.jpg`;
+        }
+
+        // Current Song
+        let songIndex = 0;
+
+        // Previous Song
+        function prevSong() {
+            songIndex--;
+            if (songIndex < 0) {
+                songIndex = songs.length - 1;
+            }
+            loadSong(songs[songIndex]);
+            playSong();
+        }
+
+        // Next Song
+        function nextSong() {
+            songIndex++;
+            if (songIndex > songs.length - 1) {
+                songIndex = 0;
+            }
+            loadSong(songs[songIndex]);
+            playSong();
+        }
+
+        // On Load - Select First Song
+        loadSong(songs[songIndex]);
+
+        // Update Progress Bar & Time
+        function updateProgressBar(e) {
+            if (isPlaying) {
+                const { duration, currentTime } = e.srcElement;
+                // Update progress bar width
+                const progressPercent = (currentTime / duration) * 100;
+                progress.style.width = `${progressPercent}%`;
+                // Calculate display for duration
+                const durationMinutes = Math.floor(duration / 60);
+                let durationSeconds = Math.floor(duration % 60);
+                if (durationSeconds < 10) {
+                    durationSeconds = `0${durationSeconds}`;
+                }
+                // Delay switching duration Element to avoid NaN
+                if (durationSeconds) {
+                    durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
+                }
+                // Calculate display for currentTime
+                const currentMinutes = Math.floor(currentTime / 60);
+                let currentSeconds = Math.floor(currentTime % 60);
+                if (currentSeconds < 10) {
+                    currentSeconds = `0${currentSeconds}`;
+                }
+                currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+            }
+        }
+
+        // Set Progress Bar
+        function setProgressBar(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const { duration } = music;
+            music.currentTime = (clickX / width) * duration;
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', prevSong);
+        nextBtn.addEventListener('click', nextSong);
+        music.addEventListener('ended', nextSong);
+        music.addEventListener('timeupdate', updateProgressBar);
+        progressContainer.addEventListener('click', setProgressBar);
+
+    </script>
+</body>
+
+</html>
