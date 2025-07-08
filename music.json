@@ -1,0 +1,320 @@
+[
+    {
+        "title": "505",
+        "artist": "Arctic Monkeys",
+        "year": "2007",
+        "duration": "4:13",
+        "file": "./music/505.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Another Brick in the Wall (Part 2)",
+        "artist": "Pink Floyd",
+        "year": "1979",
+        "duration": "3:18",
+        "file": "./music/Another Brick In The Wall.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Apocalypse",
+        "artist": "Cigarettes After Sex",
+        "year": "2017",
+        "duration": "4:50",
+        "file": "./music/Apocalypse.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Baked Chicken",
+        "artist": "So Supa",
+        "year": "2025",
+        "duration": "2:18",
+        "file": "./music/Baked Chicken.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Bleed For Me",
+        "artist": "Johnny Goth",
+        "year": "2019",
+        "duration": "4:19",
+        "file": "./music/Bleed For Me.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Bring Me to Life",
+        "artist": "Evanescence",
+        "year": "2003",
+        "duration": "4:13",
+        "file": "./music/Bring Me To Life.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Civilian",
+        "artist": "Wye Oak",
+        "year": "2011",
+        "duration": "3:40",
+        "file": "./music/Civilian.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Creep",
+        "artist": "Radiohead",
+        "year": "1992",
+        "duration": "3:56",
+        "file": "./music/Creep.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Cry",
+        "artist": "Cigarettes After Sex",
+        "year": "2019",
+        "duration": "4:16",
+        "file": "./music/Cry.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Deja Vu",
+        "artist": "Dublon & Con Cook",
+        "year": "",
+        "duration": "2:07",
+        "file": "./music/Deja Vu.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Empty Note",
+        "artist": "Ghostly Kisses",
+        "year": "2016",
+        "duration": "3:35",
+        "file": "./music/Empty Note.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Exit Music (For A Film)",
+        "artist": "Radiohead",
+        "year": "1997",
+        "duration": "4:27",
+        "file": "./music/Exit Music.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Flying",
+        "artist": "Anathema",
+        "year": "2003",
+        "duration": "5:57",
+        "file": "./music/Flying.mp3",
+        "cover": ""
+    },
+    {
+        "title": "HOPE",
+        "artist": "NF",
+        "year": "2023",
+        "duration": "5:03",
+        "file": "./music/HOPE.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Illusions",
+        "artist": "Cypress Hill",
+        "year": "1995",
+        "duration": "3:12",
+        "file": "./music/Illusions.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Let Down",
+        "artist": "Radiohead",
+        "year": "1997",
+        "duration": "4:59",
+        "file": "./music/Let Down.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Lovesong",
+        "artist": "Adele",
+        "year": "2011",
+        "duration": "5:16",
+        "file": "./music/Lovesong.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Low Life",
+        "artist": "Madd feat. Youv Dee",
+        "year": "2020",
+        "duration": "3:05",
+        "file": "./music/Low Life.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Odds",
+        "artist": "Fetah",
+        "year": "2024",
+        "duration": "3:25",
+        "file": "./music/Odds.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Numb",
+        "artist": "Radiohead",
+        "year": "2003",
+        "duration": "3:06",
+        "file": "./music/NUMB.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Swimming Pools (Drank)",
+        "artist": "Kendrick Lamar",
+        "year": "2012",
+        "duration": "3:51",
+        "file": "./music/Swimming Pools.mp3",
+        "cover": ""
+    },
+    {
+        "title": "The City Holds My Heart",
+        "artist": "Ghostly Kisses",
+        "year": "2018",
+        "duration": "4:15",
+        "file": "./music/The City Holds My Heart.mp3",
+        "cover": ""
+    },
+    {
+        "title": "TIMEZONE",
+        "artist": "Maneskin",
+        "year": "2023",
+        "duration": "3:06",
+        "file": "./music/TIMEZONE.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Daydreaming",
+        "artist": "Radiohead",
+        "year": "2016",
+        "duration": "6:26",
+        "file": "./music/Daydreaming.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Habibi",
+        "artist": "Tamino",
+        "year": "2017",
+        "duration": "5:09",
+        "file": "./music/Habibi.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Painting Pictures",
+        "artist": "Superstar",
+        "year": "2023",
+        "duration": "2.04",
+        "file": "./music/Painting Pictures.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Words",
+        "artist": "Skylar Grey",
+        "year": "2019",
+        "duration": "5:04",
+        "file": "./music/Skylar Grey - Words Lyrics.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Indigo Night",
+        "artist": "Tamino",
+        "year": "2022",
+        "duration": "4:14",
+        "file": "./music/Tamino - Indigo Night.mp3",
+        "cover": ""
+    },
+    {
+        "title": "The Emptiness Machine",
+        "artist": "Linkin Park",
+        "year": "2023",
+        "duration": "3:20",
+        "file": "./music/The Emptiness Machine (Official Music Video) - Linkin Park.mp3",
+        "cover": ""
+    },
+    {
+        "title": "FE!N",
+        "artist": "Travis Scott ft. Playboi Carti",
+        "year": "2023",
+        "duration": "3:29",
+        "file": "./music/Travis Scott - FE!N ft. Playboi Carti.mp3",
+        "cover": ""
+    },
+    {
+        "title": "GET IT ALL",
+        "artist": "Travis Scott ft. Quavo & Gunna",
+        "year": "2023",
+        "duration": "2:36",
+        "file": "./music/Travis Scott ft. Quavo & Gunna - GET IT ALL (Music Video).mp3",
+        "cover": ""
+    },
+    {
+        "title": "Two Faced",
+        "artist": "Linkin Park",
+        "year": "2023",
+        "duration": "3:06",
+        "file": "./music/Two Faced (Official Music Video) - Linkin Park.mp3",
+        "cover": ""
+    },
+    {
+        "title": "Wicked Game",
+        "artist": "Chris Isaak",
+        "year": "1989",
+        "duration": "4:46",
+        "file": "./music/Wicked Game.mp3",
+        "cover": ""
+    },
+    {
+        "title": "HARD (Tape Version)",
+        "artist": "GLAVO",
+        "album": "Tape Sessions",
+        "year": "2023",
+        "duration": "5:11",
+        "file": "music/HARD (Tape Version).mp3",
+        "cover": "./img/august.jpg"
+    },
+    {
+        "title": "HOW I FEEL",
+        "artist": "GLAVO",
+        "album": "Tape Sessions",
+        "year": "2023",
+        "duration": "3:07",
+        "file": "music/HOW I FEEL.mp3",
+        "cover": "./img/august.jpg"
+    },
+    {
+        "title": "NO GOOD",
+        "artist": "GLAVO",
+        "album": "Tape Sessions",
+        "year": "2023",
+        "duration": "3:05",
+        "file": "music/NO GOOD.mp3",
+        "cover": "./img/august.jpg"
+    },
+    {
+        "title": "Runaway",
+        "artist": "GLAVO",
+        "album": "Tape Sessions",
+        "year": "2023",
+        "duration": "3:18",
+        "file": "music/Runaway.mp3",
+        "cover": "./img/august.jpg"
+    },
+    {
+        "title": "Unknown",
+        "artist": "GLAVO",
+        "album": "Tape Sessions",
+        "year": "2023",
+        "duration": "4:40",
+        "file": "music/Unknown.mp3",
+        "cover": "./img/august.jpg"
+    },
+    {
+        "title": "Who I was",
+        "artist": "GLAVO",
+        "album": "Tape Sessions",
+        "year": "2023",
+        "duration": "3:53",
+        "file": "music/Who I was.mp3",
+        "cover": "./img/august.jpg"
+    }
+]
