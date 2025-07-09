@@ -43,8 +43,8 @@ const songs = [
         album: "Tape Sessions",
         year: "2023",
         duration: "5:11",
-        file: "music/HARD (Tape Version).mp3",
-        cover: "img/august.jpg"
+        file: "./music/HARD (Tape Version).mp3",
+        cover: "./img/august.jpg"
     },
     {
         title: "HOW I FEEL",
@@ -52,8 +52,8 @@ const songs = [
         album: "Tape Sessions",
         year: "2023",
         duration: "3:07",
-        file: "music/HOW I FEEL.mp3",
-        cover: "img/august.jpg"
+        file: "./music/HOW I FEEL.mp3",
+        cover: "./img/august.jpg"
     },
     {
         title: "NO GOOD",
@@ -61,8 +61,8 @@ const songs = [
         album: "Tape Sessions",
         year: "2023",
         duration: "3:05",
-        file: "music/NO GOOD.mp3",
-        cover: "img/august.jpg"
+        file: "./music/NO GOOD.mp3",
+        cover: "./img/august.jpg"
     },
     {
         title: "Runaway",
@@ -70,8 +70,8 @@ const songs = [
         album: "Tape Sessions",
         year: "2023",
         duration: "3:18",
-        file: "music/Runaway.mp3",
-        cover: "img/august.jpg"
+        file: "./music/Runaway.mp3",
+        cover: "./img/august.jpg"
     },
     {
         title: "Unknown",
@@ -79,8 +79,8 @@ const songs = [
         album: "Tape Sessions",
         year: "2023",
         duration: "4:40",
-        file: "music/Unknown.mp3",
-        cover: "img/august.jpg"
+        file: "./music/Unknown.mp3",
+        cover: "./img/august.jpg"
     },
     {
         title: "Who I was",
@@ -88,8 +88,8 @@ const songs = [
         album: "Tape Sessions",
         year: "2023",
         duration: "3:53",
-        file: "music/Who I was.mp3",
-        cover: "img/august.jpg"
+        file: "./music/Who I was.mp3",
+        cover: "./img/august.jpg"
     }
 ];
 
