@@ -22,15 +22,12 @@ const miniCover = document.getElementById('mini-cover');
 const playlistBody = document.getElementById('playlist-body');
 const songCountEl = document.getElementById('song-count');
 const totalDurationEl = document.getElementById('total-duration');
-const upgradeBtn = document.querySelector('.btn-upgrade');
-const userAvatar = document.querySelector('.user-avatar');
 
 let isPlaying = false;
 let isShuffled = false;
 let isRepeated = false;
 let currentSongIndex = 0;
-let songs = [];
-let totalDuration = 0;
+
 let isDraggingProgress = false;
 
 const musicNoteSVG = `
@@ -39,27 +36,62 @@ const musicNoteSVG = `
     </svg>
 `;
 
-async function fetchSongs() {
-    try {
-        const response = await fetch('/music.json');
-        if (!response.ok) {
-            throw new Error('Failed to fetch songs');
-        }
-        songs = await response.json();
-        renderPlaylist();
-        updatePlaylistStats();
-
-        if (songs.length > 0) {
-            loadSong(currentSongIndex);
-        }
-    } catch (error) {
-        console.error("Error loading songs:", error);
-
-        songs = [];
-        renderPlaylist();
-        updatePlaylistStats();
+const songs = [
+    {
+        title: "HARD (Tape Version)",
+        artist: "GLAVO",
+        album: "Tape Sessions",
+        year: "2023",
+        duration: "5:11",
+        file: "music/HARD (Tape Version).mp3",
+        cover: "img/august.jpg"
+    },
+    {
+        title: "HOW I FEEL",
+        artist: "GLAVO",
+        album: "Tape Sessions",
+        year: "2023",
+        duration: "3:07",
+        file: "music/HOW I FEEL.mp3",
+        cover: "img/august.jpg"
+    },
+    {
+        title: "NO GOOD",
+        artist: "GLAVO",
+        album: "Tape Sessions",
+        year: "2023",
+        duration: "3:05",
+        file: "music/NO GOOD.mp3",
+        cover: "img/august.jpg"
+    },
+    {
+        title: "Runaway",
+        artist: "GLAVO",
+        album: "Tape Sessions",
+        year: "2023",
+        duration: "3:18",
+        file: "music/Runaway.mp3",
+        cover: "img/august.jpg"
+    },
+    {
+        title: "Unknown",
+        artist: "GLAVO",
+        album: "Tape Sessions",
+        year: "2023",
+        duration: "4:40",
+        file: "music/Unknown.mp3",
+        cover: "img/august.jpg"
+    },
+    {
+        title: "Who I was",
+        artist: "GLAVO",
+        album: "Tape Sessions",
+        year: "2023",
+        duration: "3:53",
+        file: "music/Who I was.mp3",
+        cover: "img/august.jpg"
     }
-}
+];
 
 function renderPlaylist() {
     playlistBody.innerHTML = '';
@@ -85,9 +117,15 @@ function renderPlaylist() {
 function updatePlaylistStats() {
     songCountEl.textContent = `${songs.length} ${songs.length === 1 ? 'song' : 'songs'}`;
 
-    const totalMinutes = Math.floor(songs.length * 2.5);
-    const totalSeconds = Math.floor(songs.length * 30 % 60);
-    totalDurationEl.textContent = `• ${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
+    let totalSeconds = 0;
+    songs.forEach(song => {
+        const [minutes, seconds] = song.duration.split(':').map(Number);
+        totalSeconds += minutes * 60 + seconds;
+    });
+
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const remainingSeconds = Math.floor(totalSeconds % 60);
+    totalDurationEl.textContent = `• ${totalMinutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
 }
 
 function loadSong(index) {
@@ -95,12 +133,11 @@ function loadSong(index) {
     audioPlayer.src = song.file;
     titleEl.textContent = song.title;
     artistEl.textContent = song.artist;
-    albumEl.textContent = song.album || '';
-    yearEl.textContent = song.year || '';
+    albumEl.textContent = song.album;
+    yearEl.textContent = song.year;
     miniTitleEl.textContent = song.title;
     miniArtistEl.textContent = song.artist;
 
-    // Update the document title with the current song
     document.title = `${song.title} • ${song.artist} | MusicLover`;
 
     if (song.cover) {
@@ -124,7 +161,6 @@ function playSong() {
     playBtn.innerHTML = '<i class="fas fa-pause"></i><span>Pause</span>';
     playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
     coverArt.classList.add('playing');
-
     renderPlaylist();
 }
 
@@ -188,7 +224,6 @@ function updateTimeDisplay() {
 
 function setProgress(e) {
     if (!audioPlayer.duration) return;
-
     const width = this.clientWidth;
     const clickX = e.offsetX;
     const duration = audioPlayer.duration;
@@ -206,7 +241,6 @@ function endDragProgress() {
 
 function updateVolume() {
     audioPlayer.volume = volumeSlider.value;
-
     if (audioPlayer.volume === 0) {
         volumeIcon.className = 'fas fa-volume-mute';
     } else if (audioPlayer.volume < 0.5) {
@@ -216,14 +250,17 @@ function updateVolume() {
     }
 }
 
-document.querySelectorAll('.nav-menu li:not(.active)').forEach(item => {
-    item.addEventListener('click', () => {
-        const feature = item.querySelector('span').textContent.toLowerCase();
-    });
-});
-
 function init() {
-    fetchSongs();
+    renderPlaylist();
+    updatePlaylistStats();
+    if (songs.length > 0) {
+        loadSong(currentSongIndex);
+    }
+
+    audioPlayer.addEventListener('error', () => {
+        console.error("Audio playback error:", audioPlayer.error);
+        nextSong();
+    });
 
     playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
     playPauseBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
